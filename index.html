@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#333333" />
+    <meta name="description" content="高质量知识付费内容平台" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="知识星球" />
+    <title>知识星球 - 知识付费</title>
+    <script type="module">
+      if (import.meta.hot && import.meta.hot.on) {
+        import.meta.hot.on("vite:error", function(error) {
+          if (error && error.err) {
+            console.error([error.err.message, error.err.frame].filter(Boolean).join("\n"));
+          }
+        });
+      }
+    </script>
+  <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
