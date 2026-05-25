@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useLocation, Outlet } from "react-router-dom";
 import Home from "@/pages/Home";
 import Category from "@/pages/Category";
 import Mine from "@/pages/Mine";
@@ -25,29 +25,31 @@ function Layout() {
   )
 }
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "category", element: <Category /> },
+      { path: "mine", element: <Mine /> },
+      { path: "detail/:id", element: <Detail /> },
+      { path: "search", element: <SearchPage /> },
+    ],
+  },
+  { path: "/login", element: <Login /> },
+  { path: "/admin/login", element: <AdminLogin /> },
+  { path: "/admin/*", element: <AdminDashboard /> },
+])
+
 function AppRoutes() {
   return (
     <ErrorBoundary>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/mine" element={<Mine />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/search" element={<SearchPage />} />
-        </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/*" element={<AdminDashboard />} />
-      </Routes>
+      <RouterProvider router={router} />
     </ErrorBoundary>
   )
 }
 
 export default function App() {
-  return (
-    <Router>
-      <AppRoutes />
-    </Router>
-  );
+  return <AppRoutes />;
 }
