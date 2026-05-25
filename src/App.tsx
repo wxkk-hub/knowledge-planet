@@ -25,22 +25,25 @@ function Layout() {
   )
 }
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "category", element: <Category /> },
-      { path: "mine", element: <Mine /> },
-      { path: "detail/:id", element: <Detail /> },
-      { path: "search", element: <SearchPage /> },
-    ],
-  },
-  { path: "/login", element: <Login /> },
-  { path: "/admin/login", element: <AdminLogin /> },
-  { path: "/admin/*", element: <AdminDashboard /> },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "category", element: <Category /> },
+        { path: "mine", element: <Mine /> },
+        { path: "detail/:id", element: <Detail /> },
+        { path: "search", element: <SearchPage /> },
+      ],
+    },
+    { path: "/login", element: <Login /> },
+    { path: "/admin/login", element: <AdminLogin /> },
+    { path: "/admin/*", element: <AdminDashboard /> },
+  ],
+  { basename: import.meta.env.BASE_URL }
+)
 
 function AppRoutes() {
   return (
