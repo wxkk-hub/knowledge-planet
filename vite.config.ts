@@ -5,6 +5,7 @@ import { traeBadgePlugin } from 'vite-plugin-trae-solo-badge';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/knowledge-planet/',
   build: {
     sourcemap: 'hidden',
   },
